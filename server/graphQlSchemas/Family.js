@@ -17,3 +17,10 @@ var FamilyType = new GraphQLObjectType({
     interests: {type: new GraphQLList(InterestType)}
   }
 });
+
+var FamilyQueryType = new GraphQLObjectType({
+  name: 'FamilyQuery',
+  fields: function () {
+    
+  }
+})
