@@ -5,6 +5,7 @@ var GraphQLInt = GraphQLType.GraphQLInt;
 var GraphQLList = GraphQLType.GraphQLList;
 var GraphQLString = GraphQLType.GraphQLString;
 var GraphQLNonNull = GraphQLType.GraphQlNonNull;
+var GraphQLID = GraphQLType.GraphQLID;
 
 var IntrestType = require('./Interest.js');
 
@@ -12,6 +13,7 @@ var FamilyType = new GraphQLObjectType({
   name: 'Family',
   description: 'Family schema',
   fields: {
+    _id: {type: new GraphQLNonNull(GraphQLID)},
     name: {type: new GraphQLNonNull(GraphQLString)},
     age: {type: GraphQLInt},
     interests: {type: new GraphQLList(InterestType)}
@@ -20,7 +22,21 @@ var FamilyType = new GraphQLObjectType({
 
 var FamilyQueryType = new GraphQLObjectType({
   name: 'FamilyQuery',
-  fields: function () {
-    
+  fields: {
+    members: {
+      type: new GraphQLList(FamilyType),
+      resolve: function () {
+        // fill in later
+      }
+    },
+    member: {
+      type: FamilyType,
+      args: {
+        id: {type: GraphQlString}
+      },
+      resolve: function (id) {
+        // fill in later
+      }
+    }
   }
 })
