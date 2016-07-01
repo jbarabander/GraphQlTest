@@ -25,7 +25,7 @@ var FamilyQueryType = new GraphQLObjectType({
   fields: {
     members: {
       type: new GraphQLList(FamilyType),
-      resolve: function () {
+      resolve: function (parent, args) {
         // fill in later
       }
     },
@@ -34,7 +34,7 @@ var FamilyQueryType = new GraphQLObjectType({
       args: {
         id: {type: GraphQlString}
       },
-      resolve: function (id) {
+      resolve: function (parent, args) {
         // fill in later
       }
     }
